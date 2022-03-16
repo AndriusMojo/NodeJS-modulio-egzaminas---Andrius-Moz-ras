@@ -1,0 +1,48 @@
+const Joi = require('joi');
+const { verifyJwtToken } = require('./auth');
+const { failResponse } = require('./dbHelper');
+
+async function validateUser(req, res, next) {
+  const schema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().min(5).max(50).required(),
+  });
+  try {
+    await schema.validateAsync(req.body, { abortEarly: false });
+    next();
+  } catch (error) {
+    console.log('validate user error ===', error);
+    // map
+    const formatedError = error.details.map((detail) => ({
+      message: detail.message,
+      field: detail.context.key,
+    }));
+    failResponse(res, formatedError);
+  }
+}
+
+async function validateToken(req, res, next) {
+  const authHeader = req.headers.authorization;
+  const tokenGotFromUser = authHeader && authHeader.split(' ')[1];
+  if (!tokenGotFromUser) return failResponse(res, 'token not found', 401);
+  const verifyResult = verifyJwtToken(tokenGotFromUser);
+  if (verifyResult === false) return failResponse(res, 'invalid token', 403);
+  req.userId = verifyResult.id;
+  next();
+}
+
+async function validateTokenAllTutorials(req, res, next) {
+  const authHeader = req.headers.authorization;
+  const tokenGotFromUser = authHeader && authHeader.split(' ')[1];
+  if (!tokenGotFromUser) return next();
+  const verifyResult = verifyJwtToken(tokenGotFromUser);
+  if (verifyResult === false) return next();
+  req.validUser = true;
+  next();
+}
+
+module.exports = {
+  validateUser,
+  validateToken,
+  validateTokenAllTutorials,
+};

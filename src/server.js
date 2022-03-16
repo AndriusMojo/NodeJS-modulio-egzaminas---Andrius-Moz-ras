@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const usersRoutes = require('./routes/usersRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const PORT = process.env.SERVER_PORT || 3000;
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/', usersRoutes);
+app.use('/auth', authRoutes);
 
 
 app.all('*', (req, res) => {

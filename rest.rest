@@ -1,2 +1,22 @@
 GET http://localhost:3000/users
 ###
+
+GET http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "full_name": "Chernia Vapse",
+    "email": "chernia@email.com",
+    "password": "secret123"
+}
+###
+
+GET http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "full_name": "Chernia Vapse",
+    "email": "chernia@email.com",
+    "password": "secret123"
+}
+###
