@@ -50,3 +50,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxN
 }
 
 ###
+
+POST http://localhost:3000/groups
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTU1NjQyLCJleHAiOjE2NDc1NTkyNDJ9.DIBBbGbzjh22Oqx2jfySj3i_QneeJwqOCt-ukGOpHWw
+
+{
+      "name": "For McDonalds"
+}
+###

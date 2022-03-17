@@ -1,7 +1,7 @@
 const { accountInDb, createAccountInDb } = require('../models/accountsModel');
 const { failResponse, successResponse } = require('../utilities/dbHelper');
 
-async function getAccount(req, res) {
+async function getAccounts(req, res) {
   const userId = req.token.id;
   const serverResponseJS = await accountInDb(userId);
 
@@ -24,5 +24,5 @@ async function createAccount(req, res) {
 
 module.exports = {
   createAccount,
-  getAccount,
+  getAccounts,
 };
