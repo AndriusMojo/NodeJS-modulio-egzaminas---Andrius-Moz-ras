@@ -1,6 +1,8 @@
 const Joi = require('joi');
+const jwt = require('jsonwebtoken');
 const { verifyJwtToken } = require('./auth');
 const { failResponse } = require('./dbHelper');
+const { jwtSecret } = require('./jwtSecret');
 
 async function registerUserValidate(req, res, next) {
   const schema = Joi.object({
