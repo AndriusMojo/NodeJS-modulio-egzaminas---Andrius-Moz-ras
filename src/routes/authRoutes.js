@@ -4,7 +4,7 @@ const { registerUserValidate, loginUserValidate } = require('../utilities/middle
 
 const authRoutes = express.Router();
 
-authRoutes.get('/register', registerUserValidate, authController.userRegister);
-authRoutes.get('/login', loginUserValidate, authController.userLogin);
+authRoutes.post('/register', registerUserValidate, authController.userRegister);
+authRoutes.post('/login', loginUserValidate, authController.userLogin);
 
 module.exports = authRoutes;

@@ -1,9 +1,9 @@
-const { accountInDb, createAccountInDb } = require('../models/accountsModel');
+const { createAccountInDb, getAccountInDb } = require('../models/accountsModel');
 const { failResponse, successResponse } = require('../utilities/dbHelper');
 
 async function getAccounts(req, res) {
   const userId = req.token.id;
-  const serverResponseJS = await accountInDb(userId);
+  const serverResponseJS = await getAccountInDb(userId);
 
   return serverResponseJS === false
     ? failResponse(res)

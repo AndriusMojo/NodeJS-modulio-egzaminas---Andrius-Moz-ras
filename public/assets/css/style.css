@@ -1,0 +1,31 @@
+body {
+    height: 80vh;
+    background-color: rgb(246, 246, 246);
+}
+
+.home-head img {
+    width: 250px; 
+    height: 250px;
+}
+
+header, main, footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav .home-nav {
+
+}
+
+#register, #login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
