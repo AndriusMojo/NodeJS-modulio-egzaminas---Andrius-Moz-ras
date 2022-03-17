@@ -2,7 +2,27 @@ const Joi = require('joi');
 const { verifyJwtToken } = require('./auth');
 const { failResponse } = require('./dbHelper');
 
-async function validateUser(req, res, next) {
+async function registerUserValidate(req, res, next) {
+  const schema = Joi.object({
+    full_name: Joi.string().required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(5).max(50).required(),
+  });
+  try {
+    await schema.validateAsync(req.body, { abortEarly: false });
+    next();
+  } catch (error) {
+    console.log('validate user error ===', error);
+    // map
+    const formatedError = error.details.map((detail) => ({
+      message: detail.message,
+      field: detail.context.key,
+    }));
+    failResponse(res, formatedError);
+  }
+}
+
+async function loginUserValidate(req, res, next) {
   const schema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().min(5).max(50).required(),
@@ -31,7 +51,7 @@ async function validateToken(req, res, next) {
   next();
 }
 
-async function validateTokenAllTutorials(req, res, next) {
+async function validateTokenForGroups(req, res, next) {
   const authHeader = req.headers.authorization;
   const tokenGotFromUser = authHeader && authHeader.split(' ')[1];
   if (!tokenGotFromUser) return next();
@@ -41,8 +61,20 @@ async function validateTokenAllTutorials(req, res, next) {
   next();
 }
 
+async function isLoggedIn(req, res, next) {
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
+    req.token = jwt.verify(token, jwtSecret);
+    next();
+  } catch (error) {
+    res.status(401).send({ error: 'invalid token' });
+  }
+}
+
 module.exports = {
-  validateUser,
+  registerUserValidate,
+  loginUserValidate,
   validateToken,
-  validateTokenAllTutorials,
+  validateTokenForGroups,
+  isLoggedIn,
 };

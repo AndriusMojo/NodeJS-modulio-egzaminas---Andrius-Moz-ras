@@ -15,8 +15,31 @@ GET http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-    "full_name": "Chernia Vapse",
     "email": "chernia@email.com",
     "password": "secret123"
 }
+###
+
+GET http://localhost:3000/bills/1
+###
+
+POST http://localhost:3000/bills
+Content-Type: application/json
+
+{
+      "group_id": 1,
+      "amount": 120,
+      "description": "For natural gas, electricity, water and central heating."
+}
+###
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTExNTU1LCJleHAiOjE2NDc1MTUxNTV9.VaK7fsV3tDIL1YrvXsT2ulyiD9V1ETOb0JBrrQwXPBg
+###
+
+GET http://localhost:3000/accounts
+
+###
+
+POST http://localhost:3000/accounts
 ###

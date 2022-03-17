@@ -1,9 +1,10 @@
 const express = require('express');
 const authController = require('../controllers/authController');
+const { registerUserValidate, loginUserValidate } = require('../utilities/middleware');
 
-const userRoutes = express.Router();
+const authRoutes = express.Router();
 
-userRoutes.get('/register', authController.userRegister);
-userRoutes.get('/login', authController.userLogin);
+authRoutes.get('/register', registerUserValidate, authController.userRegister);
+authRoutes.get('/login', loginUserValidate, authController.userLogin);
 
-module.exports = userRoutes;
+module.exports = authRoutes;
