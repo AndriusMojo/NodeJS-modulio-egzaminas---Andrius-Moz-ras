@@ -21,10 +21,12 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/bills/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTE2NzY3LCJleHAiOjE2NDc1MjAzNjd9.fEZ0phpRnTy1WO4uA7orheDcXv2-lic1D0EG-Rrrd2Q
 ###
 
 POST http://localhost:3000/bills
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTE2NzY3LCJleHAiOjE2NDc1MjAzNjd9.fEZ0phpRnTy1WO4uA7orheDcXv2-lic1D0EG-Rrrd2Q
 
 {
       "group_id": 1,
@@ -33,13 +35,18 @@ Content-Type: application/json
 }
 ###
 
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTExNTU1LCJleHAiOjE2NDc1MTUxNTV9.VaK7fsV3tDIL1YrvXsT2ulyiD9V1ETOb0JBrrQwXPBg
-###
-
 GET http://localhost:3000/accounts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTE2NzY3LCJleHAiOjE2NDc1MjAzNjd9.fEZ0phpRnTy1WO4uA7orheDcXv2-lic1D0EG-Rrrd2Q
 
 ###
 
 POST http://localhost:3000/accounts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTE2NzY3LCJleHAiOjE2NDc1MjAzNjd9.fEZ0phpRnTy1WO4uA7orheDcXv2-lic1D0EG-Rrrd2Q
+
+{
+      "group_id": 1
+}
+
 ###
