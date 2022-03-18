@@ -5,6 +5,6 @@ const { isLoggedIn } = require('../utilities/middleware');
 const router = express.Router();
 
 router.get('/accounts', isLoggedIn, getAccounts);
-router.post('/accounts', isLoggedIn, createAccount);
+router.post('/accounts/create', isLoggedIn, createAccount);
 
 module.exports = router;

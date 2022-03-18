@@ -41,7 +41,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxN
 
 ###
 
-POST http://localhost:3000/accounts
+POST http://localhost:3000/accounts/create
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTE2NzY3LCJleHAiOjE2NDc1MjAzNjd9.fEZ0phpRnTy1WO4uA7orheDcXv2-lic1D0EG-Rrrd2Q
 

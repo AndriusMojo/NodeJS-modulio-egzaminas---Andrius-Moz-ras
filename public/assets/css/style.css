@@ -1,14 +1,17 @@
 body {
-    height: 80vh;
     background-color: rgb(246, 246, 246);
 }
 
-.home-head img {
+main {
+    height: 60vh;
+}
+
+.home.head img {
     width: 250px; 
     height: 250px;
 }
 
-header, main, footer {
+.home, .login, .register {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,12 +23,17 @@ header, main, footer {
     flex-direction: column;
 }
 
-nav .home-nav {
-
-}
-
 #register, #login {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.groups-wrapper {
+    height: 60vh;
+}
+
+#groups {
+    display: flex;
+    justify-content: center;
 }
