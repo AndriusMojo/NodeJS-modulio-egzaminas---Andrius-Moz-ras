@@ -1,17 +1,17 @@
 GET http://localhost:3000/users
 ###
 
-GET http://localhost:3000/auth/register
+POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "full_name": "Chernia Vapse",
-    "email": "chernia@email.com",
+    "full_name": "Lama Lamarok",
+    "email": "lama@email.com",
     "password": "secret123"
 }
 ###
 
-GET http://localhost:3000/auth/login
+POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
@@ -41,7 +41,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxN
 
 ###
 
-POST http://localhost:3000/accounts
+POST http://localhost:3000/accounts/create
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTE2NzY3LCJleHAiOjE2NDc1MjAzNjd9.fEZ0phpRnTy1WO4uA7orheDcXv2-lic1D0EG-Rrrd2Q
 
@@ -49,4 +49,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxN
       "group_id": 1
 }
 
+###
+
+POST http://localhost:3000/groups
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ3NTU1NjQyLCJleHAiOjE2NDc1NTkyNDJ9.DIBBbGbzjh22Oqx2jfySj3i_QneeJwqOCt-ukGOpHWw
+
+{
+      "name": "For McDonalds"
+}
 ###

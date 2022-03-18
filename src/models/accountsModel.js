@@ -1,14 +1,14 @@
 const mysql = require('mysql2/promise');
 const dbConfig = require('../dbConfig');
 
-async function accountInDb(userId) {
+async function getAccountInDb(userId) {
   try {
     const conn = await mysql.createConnection(dbConfig);
     const sql = `
-    SELECT accounts.id AS "id", groups.name AS "group", accounts.user_id AS "user_id" 
-    FROM accounts
-    INNER JOIN groups ON accounts.group_id = groups.id
-    WHERE user_id = ?`;
+    SELECT accounts.user_id, accounts.group_id, groups.name 
+    FROM accounts 
+    LEFT JOIN groups 
+    ON accounts.group_id = groups.id WHERE user_id = ?`;
     const [fields] = await conn.execute(sql, [userId]);
     await conn.close();
     return fields;
@@ -32,7 +32,6 @@ async function createAccountInDb(newRecordData) {
 }
 
 module.exports = {
-  accountInDb,
+  getAccountInDb,
   createAccountInDb,
 };
-

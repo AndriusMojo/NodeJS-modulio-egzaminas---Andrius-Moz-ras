@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(246, 246, 246);
+}
+
+main {
+    height: 60vh;
+}
+
+.home.head img {
+    width: 250px; 
+    height: 250px;
+}
+
+.home, .login, .register {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#register, #login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.groups-wrapper {
+    height: 60vh;
+}
+
+#groups {
+    display: flex;
+    justify-content: center;
+}

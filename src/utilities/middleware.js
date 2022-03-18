@@ -6,7 +6,7 @@ const { jwtSecret } = require('./jwtSecret');
 
 async function registerUserValidate(req, res, next) {
   const schema = Joi.object({
-    full_name: Joi.string().required(),
+    full_name: Joi.string().min(6).required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(5).max(50).required(),
   });
